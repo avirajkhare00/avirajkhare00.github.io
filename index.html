@@ -1,54 +1,32 @@
-<!DOCTYPE html>
-<html><head>
+<!doctype html>
+<html>
+<head>
 <title>dcodeᴵᴼ</title>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-<meta name="description" content="No more. No less." />
-<link rel="shortcut icon" href="favicon.ico" />
-<link rel="stylesheet" type="text/css" media="screen" charset="utf-8" href="css/main.css" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+<link rel="stylesheet" type="text/css" href="index.css" />
 </head>
-<body style="background: #000">
-<div style="position: absolute; top: 15px; right: 20px">
-    <a target="_blank" href="https://github.com/dcodeIO"><img src="img/github.png" /></a>
-    <a target="_blank" href="https://twitter.com/dcodeIO"><img src="img/twitter.png" /></a>
-    <a target="_blank" href="https://soundcloud.com/dcode-music"><img src="img/soundcloud.png" /></a>
-    <form class="ng-pristine ng-valid" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" style="display: inline-block">
-        <input name="cmd" value="_donations" type="hidden">
-        <input name="business" value="info@code-emitter.com" type="hidden">
-        <input name="lc" value="US" type="hidden">
-        <input name="item_name" value="&lt;3 dcode" type="hidden">
-        <input name="no_note" value="0" type="hidden">
-        <input name="currency_code" value="EUR" type="hidden">
-        <input name="bn" value="PP-DonationsBF:btn_donateCC_LG.gif:NonHostedGuest" type="hidden">
-        <input src="img/donate.png" name="submit" alt="PayPal - The safer, easier way to pay online!" border="0" type="image">
-    </form>
+<body>
+<div id="about">
+  <h1>Hi, I'm <a href="mailto:dcode@dcode.io">Daniel</a>.</h1>
+  <p>I create more or less useful <a href="https://github.com/dcodeIO">tools</a>, <a href="http://www.creeptd.com">games</a>, <a href="http://playrust.io">mods</a> and <a href="https://soundcloud.com/dcode-music">music</a>.</p>
+  <br />
+  <ul class="links">
+    <li><a href="https://github.com/dcodeIO" title="GitHub profile"><img src="assets/github.png" width="32" alt="GitHub" /></a></li>
+    <li><a href="https://twitter.com/dcodeIO" title="Twitter profile"><img src="assets/twitter.png" width="32" alt="Twitter" /></a></li>
+    <li><a href="https://soundcloud.com/dcode-music" title="SoundCloud profile"><img src="assets/soundcloud.png" height="32" alt="SoundCloud" /></a></li>
+  </ul>
 </div>
-<canvas id="canvas0" width="2000" height="1000" style="cursor: pointer"></canvas>
-<script src="js/GameOfLife.js"></script>
-<script src="js/GameOfLife/structures.js"></script>
-<script src="js/GameOfLife/alphabet.js"></script>
-<iframe id="player" src="http://w.soundcloud.com/player/?url=https://api.soundcloud.com/playlists/3017919&show_artwork=true&liking=true&sharing=true" width="250" height="308" frameborder="0" border="0" style="position: absolute; right: 20px; bottom: -2px"></iframe>
-<div id="controls" style="position: absolute; left: 20px; bottom: -2px"><div style="border-radius: 4px; background: #f5f5f5; padding: 9px; padding-bottom: 11px; border: 1px solid #fff">
-    <a href="#" onclick="return playGame()" title="Starts the game"><i class="fa fa-play"></i></a> &nbsp;
-    <a href="#" onclick="return pauseGame()" title="Pauses the game"><i class="fa fa-pause"></i></a> &nbsp; | &nbsp;
-    <a href="#" onclick="return saveGame()" title="Saves the current state"><i class="fa fa-save"></i></a> &nbsp;
-    <a href="#" onclick="return resetGame()" title="Resets the game to the saved state"><i class="fa fa-refresh"></i></a> &nbsp; | &nbsp;
-    <a href="#" onclick="return clearGame()" title="Clears the universe"><i class="fa fa-trash-o"></i></a> &nbsp;
-    <select id="structures">
-        <option value="">Random structure</option>
-    </select>
-    <select id="colors">
-        <option value="">Random color</option>
-        <option value="0">blue</option>
-        <option value="1">green</option>
-        <option value="2">red</option>
-    </select>
-    <!-- <select id="scale">
-        <option value="5">Scale 5</option>
-        <option value="10" selected="selected">Scale 10</option>
-        <option value="20">Scale 20</option>
-    </select> &nbsp;
-    <label for="continuous-cb"><input checked="checked" id="continuous-cb" type="checkbox" value="1" style="position: relative; top: 2px" /> Continuous</label>-->
-</div></div>
-<script src="js/main.js"></script>
-</body></html>
+<div id="donate">
+  <p>Donations make me worry less and thus more productive.</p>
+  <br />
+  <ul id="links">
+    <li><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=UYERF83BBJYNW" title="Donate with PayPal"><img src="assets/paypal.png" width="32" alt="PayPal" /></a></li>
+    <li><a href="bitcoin:17BLmG2gr17DiTBujBFWEck8pakjswahpF" title="Donate Bitcoin"><img src="assets/bitcoin.png" width="32" alt="Bitcoin" /></a></li>
+  </ul>
+</div>
+<script src="assets/structures.js"></script>
+<script src="index.js"></script>
+</body>
+</html>
 <!-- Our greatest weakness lies in giving up. The most certain way to succeed is always to try just one more time. -->
