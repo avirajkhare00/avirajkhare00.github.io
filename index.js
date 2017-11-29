@@ -1,22 +1,24 @@
 var r = 2;
 var w = 960;
 var h = 960;
+var s = w * h;
 
-var mem = new WebAssembly.Memory({ initial: Math.ceil(24 + w * h / 65536) });
+var mem = new WebAssembly.Memory({ initial: Math.ceil((24 + 2 * s) / 65536) });
 var buf = new Uint8Array(mem.buffer, 24);
 
 var cnv = document.createElement("canvas"); cnv.width = w * r; cnv.height = h * r;
 var ctx = cnv.getContext("2d");
 
 function resize(init) {
-  r = Math.max(Math.ceil(Math.max(cnv.width = window.innerWidth, cnv.height = window.innerHeight) / 960), 2);
+  r = Math.max(Math.ceil(Math.max(cnv.width = window.innerWidth, cnv.height = window.innerHeight) / 960), 2)|0;
   w = (window.innerWidth / r)|0;
   h = (window.innerHeight / r)|0;
+  s = w * h;
   init(w, h);
 }
 
 function update(step) {
-  buf.set(buf.subarray(w * h, 2 * w * h), 0);
+  buf.set(buf.subarray(s, 2 * s), 0);
   if (Math.random() < 0.0025) {
     var keys = Object.keys(structures);
     insert(structures[keys[(Math.random() * keys.length)|0]]);
@@ -27,7 +29,6 @@ function update(step) {
 function render() {
   requestAnimationFrame(render);
   ctx.clearRect(0, 0, cnv.width, cnv.height);
-  var s = w * h;
   for (var y = 0; y < h; ++y)
     for (var x = 0, v; x < w; ++x)
       if (v = buf[s + w * y + x]) {
