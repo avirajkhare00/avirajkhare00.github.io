@@ -2,7 +2,6 @@ import { MetadataRoute } from 'next'
 
 export const dynamic = 'force-static'
 export const revalidate = 86400 // revalidate every 24 hours
-export const runtime = 'edge'
 
 export async function GET(): Promise<Response> {
   // Base URL from environment variable or default
