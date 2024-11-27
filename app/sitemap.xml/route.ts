@@ -1,6 +1,8 @@
 import { MetadataRoute } from 'next'
 
 export const runtime = 'edge'
+export const dynamic = 'force-static'
+export const revalidate = 86400 // revalidate every 24 hours
 
 export async function GET(): Promise<Response> {
   // Get the last modified date of your content
@@ -37,7 +39,7 @@ export async function GET(): Promise<Response> {
   return new Response(sitemap, {
     headers: {
       'Content-Type': 'application/xml',
-      'Cache-Control': 'public, max-age=3600, s-maxage=3600',
+      'Cache-Control': 'public, max-age=86400, s-maxage=86400',
     },
   })
 }

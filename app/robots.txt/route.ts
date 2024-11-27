@@ -1,5 +1,7 @@
 import { MetadataRoute } from 'next'
 
+export const dynamic = 'force-static'
+export const revalidate = 86400 // revalidate every 24 hours
 export const runtime = 'edge'
 
 export async function GET(): Promise<Response> {
@@ -9,6 +11,8 @@ export async function GET(): Promise<Response> {
   const robotsTxt = `# https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /_next/
 
 # Host
 Host: ${baseUrl}
@@ -19,7 +23,7 @@ Sitemap: ${baseUrl}/sitemap.xml`
   return new Response(robotsTxt, {
     headers: {
       'Content-Type': 'text/plain',
-      'Cache-Control': 'public, max-age=3600, s-maxage=3600',
+      'Cache-Control': 'public, max-age=86400, s-maxage=86400',
     },
   })
 }
